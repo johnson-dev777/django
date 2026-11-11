@@ -1,5 +1,9 @@
 from django.contrib import admin
-from gestao.models import Disciplina
+from gestao.models import Disciplina, Curso
+
+@admin.register(Curso)
+class CursoAdmin(admin.ModelAdmin):
+    list_display = ['nome', 'eixo']
 
 @admin.register(Disciplina)
 class DisciplinaAdmin(admin.ModelAdmin):
