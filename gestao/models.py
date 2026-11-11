@@ -9,7 +9,7 @@ def __str__(self):
 class Disciplina(models.Model):
     curso = models.ForeignKey(Curso, 
                               on_delete=models.PROTECT,
-                              RELATED_NAME='disciplinas', null=True, blank=False
+                              related_name='disciplinas', null=True, blank=False
                               )
 
 class Disciplina(models.Model):
