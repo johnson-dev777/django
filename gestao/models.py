@@ -1,5 +1,17 @@
 from django.db import models
 
+class Curso(models.Model):
+    nome = models.CharField(max_length=120)
+    eixo = models.CharField(max_length=80)
+def __str__(self):
+    return self.nome
+    
+class Disciplina(models.Model):
+    curso = models.ForeignKey(Curso, 
+                              on_delete=models.PROTECT,
+                              RELATED_NAME='disciplinas',
+                              )
+
 class Disciplina(models.Model):
     nome = models.CharField(max_length=120, null=False, blank=False)
     codigo = models.CharField(max_length=6, unique=True, null=True, blank=True)
@@ -15,3 +27,6 @@ class Meta:
 
 def __str__(self):
     return f"{self.codigo} – {self.nome}"
+
+
+    
